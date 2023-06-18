@@ -9,12 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.15",
-    "@heroicons/react": "^2.0.18",
+   
     "autoprefixer": "10.4.14",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.6",
-    "headlessui": "^0.0.0",
+  
     "next": "13.4.6",
     "postcss": "8.4.24",
     "react": "18.2.0",
