@@ -1,7 +1,7 @@
 import './globals.css'
-import { Lora } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
-const lora = Lora({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
    
-      <body className={lora.className}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
