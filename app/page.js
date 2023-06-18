@@ -1,7 +1,7 @@
 
 export default function Home() {
   return (
-  <main>
+  <main className="bg-gradient-to-r from-black via-gray-800 to-gray-700 text-white">
     {/* for navbar */}
     <header className=" border-gray-100">
   <div
@@ -18,7 +18,7 @@ export default function Home() {
     <div className="flex flex-1 items-center justify-end gap-8">
       <nav
         aria-label="Global" 
-        className="hidden lg:flex lg:gap-4 lg:text-[1.1rem] font-bold lg:tracking-wider lg:text-white-500"
+        className="hidden lg:flex lg:gap-5 lg:text-[1.1rem] font-bold lg:tracking-wider lg:text-white-500"
       >
         <a
           href="/about"
@@ -54,7 +54,7 @@ export default function Home() {
   </div>
 </header>
 {/* HeroPage */}
-<section className="bg-black text-white">
+<section className=" text-white">
   <div
     className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
   >
@@ -77,7 +77,7 @@ export default function Home() {
           className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
           href="/get-started"
         >
-          Connect with Wallet 🦊
+          Connect with Wallet  🦊
         </a>
 
         
