@@ -1,18 +1,16 @@
-
+import Image from "next/image"
 export default function Home() {
   return (
-  <main className="bg-gradient-to-r from-black via-gray-800 to-gray-700 text-white">
+  <main className=" text-white">
     {/* for navbar */}
-    <header className=" border-gray-100">
+    <header className=" border-gray-100 pt-2 " >
   <div
     className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8"
   >
     <div className="flex items-center gap-4">
       
 
-      <a href="#" className="flex">
-        <span className="inline-block h-10 hover:scale-110 duration-300 w-32 rounded-lg font-bold text-xl">healthdex</span>
-      </a>
+        <Image src="https://github.com/dakshsinghrathore/WEB3_CHAT_DAPP/assets/115932772/6ddf002f-c56a-47eb-9c3a-1dc879933054 " width={200} height={200} className="inline-block  hover:scale-110 duration-300  rounded-lg font-bold text-xl" alt="logo" />
     </div>
 
     <div className="flex flex-1 items-center justify-end gap-8">
@@ -54,22 +52,20 @@ export default function Home() {
   </div>
 </header>
 {/* HeroPage */}
-<section className=" text-white">
+<section className=" text-white ">
   <div
-    className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
+    className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen  "
   >
-    <div className="mx-auto max-w-3xl text-center ">
+    <div className="mx-auto max-w-3xl text-center  ">
       <h1
         className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl"
       >
-        Understand User Flow.
+        healthdex for secure healthcare records
 
-        <span className="sm:block"> Increase Conversion. </span>
       </h1>
 
-      <p className="mx-auto mt-4 max-w-xl text-xl">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-        tenetur fuga ducimus numquam ea!
+      <p className="mx-auto mt-8 w-50 text-xl">
+      HealthDex is a reliable and robust platform, its advanced features and stringent protocols offers a seamless and protected environment for storing and accessing sensitive medical information.
       </p>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4 ">
@@ -77,7 +73,7 @@ export default function Home() {
           className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
           href="/get-started"
         >
-          Connect with Wallet  🦊
+          Connect with Wallet  
         </a>
 
         
