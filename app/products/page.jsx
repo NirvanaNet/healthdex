@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Contactpage() {
+function Productpage() {
     return (
         <div className='flex justify-center items-center h-screen'>
-            <p className='font-bold text-8xl'>Contact Page</p>
+            <p className='font-bold text-8xl'>Product Page</p>
         </div>
     )
 }
 
-export default Contactpage
+export default Productpage
