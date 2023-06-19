@@ -16,7 +16,7 @@ export default function Home() {
     <div className="flex flex-1 items-center justify-end gap-8">
       <nav
         aria-label="Global" 
-        className="hidden lg:flex lg:gap-5 lg:text-[1.1rem] font-bold lg:tracking-wider lg:text-white-500"
+        className="hidden lg:flex lg:gap-5 lg:text-[0.95rem] font-bold lg:tracking-wider lg:text-white-500"
       >
         <a
           href="/about"
