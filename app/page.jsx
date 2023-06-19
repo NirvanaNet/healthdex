@@ -1,86 +1,110 @@
-import Image from "next/image"
+"use client" // this is a client-side only component
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import Navbar from "../components/navbar"
 export default function Home() {
+
+  let [isOpen, setIsOpen] = useState(false) // for popup
+
+  // functions for popup
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+
   return (
-  <main className=" text-white">
-    {/* for navbar */}
-    <header className=" border-gray-100 pt-2 " >
-  <div
-    className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8"
-  >
-    <div className="flex items-center gap-4">
-      
-
-        <Image src="https://github.com/dakshsinghrathore/WEB3_CHAT_DAPP/assets/115932772/6ddf002f-c56a-47eb-9c3a-1dc879933054 " width={200} height={200} className="inline-block  hover:scale-110 duration-300  rounded-lg font-bold text-xl" alt="logo" />
-    </div>
-
-    <div className="flex flex-1 items-center justify-end gap-8">
-      <nav
-        aria-label="Global" 
-        className="hidden lg:flex lg:gap-5 lg:text-[0.95rem] font-bold lg:tracking-wider lg:text-white-500"
-      >
-        <a
-          href="/about"
-          className="block h-16 hover:scale-110 duration-300 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-primary"
+    <main className=" text-white">
+      {/* for navbar */}
+      <Navbar />
+      {/* HeroPage */}
+      <section className=" text-white ">
+        <div
+          className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen  "
         >
-          About
-        </a>
+          <div className="mx-auto max-w-3xl text-center  ">
+            <h1
+              className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl"
+            >
+              healthdex for secure healthcare records
 
-        <a
-          href="/news"
-          className="block h-16 hover:scale-110 duration-300 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-primary"
-        >
-          News
-        </a>
+            </h1>
 
-        <a
-          href="/products"
-          className="block h-16 border-b-4 hover:scale-110 duration-300 border-transparent leading-[4rem] hover:border-current hover:text-primary"
-        >
-          Products
-        </a>
+            <p className="mx-auto mt-8 w-50 text-xl">
+              HealthDex is a reliable and robust platform, its advanced features and stringent protocols offers a seamless and protected environment for storing and accessing sensitive medical information.
+            </p>
 
-        <a
-          href="/contact"
-          className="block h-16 border-b-4 hover:scale-110 duration-300 border-transparent leading-[4rem] hover:border-current hover:text-primary"
-        >
-          Contact
-        </a>
-      </nav>
+            <div className="mt-8 flex flex-wrap justify-center gap-4 ">
+              <button onClick={openModal} type='button'
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
+              >
+                Connect with Wallet
+              </button>
 
-      
-    </div>
-  </div>
-</header>
-{/* HeroPage */}
-<section className=" text-white ">
-  <div
-    className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen  "
-  >
-    <div className="mx-auto max-w-3xl text-center  ">
-      <h1
-        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl"
-      >
-        healthdex for secure healthcare records
 
-      </h1>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <p className="mx-auto mt-8 w-50 text-xl">
-      HealthDex is a reliable and robust platform, its advanced features and stringent protocols offers a seamless and protected environment for storing and accessing sensitive medical information.
-      </p>
+      {/* Popup code */}
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
-      <div className="mt-8 flex flex-wrap justify-center gap-4 ">
-        <a
-          className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
-          href="/get-started"
-        >
-          Connect with Wallet  
-        </a>
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Wallet coming soon
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                      This feature is coming soon. We are working on it. Stay tuned!
+                    </p>
+                  </div>
 
-        
-      </div>
-    </div>
-  </div>
-</section>
-  </main>
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+    </main>
   )
 }
