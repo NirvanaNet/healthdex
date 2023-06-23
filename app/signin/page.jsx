@@ -23,7 +23,7 @@ const Signinpage = () => {
                 'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                 selected
-                  ? 'bg-white text-black shadow'
+                  ? 'bg-white text-gray-800  shadow'
                   : 'text-white hover:bg-white/[0.12] hover:text-white'
               )
               }
@@ -36,26 +36,26 @@ const Signinpage = () => {
                 'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                 selected
-                  ? 'bg-white text-black shadow'
+                  ? 'bg-white text-gray-800  shadow'
                   : 'text-white hover:bg-white/[0.12] hover:text-white'
               )
               }
             >
               Sign Up as a Patient
             </Tab>
-            <Tab
+            {/* <Tab
               className={({ selected }) =>
                 classNames(
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                   selected
-                    ? 'bg-white text-black shadow'
+                    ? 'bg-white text-gray-800 shadow'
                     : 'text-white hover:bg-white/[0.12] hover:text-white'
                 )
               }
             >
               Login
-            </Tab>
+            </Tab> */}
         </Tab.List>
         <Tab.Panels className="mt-5">
             <Tab.Panel>
@@ -86,19 +86,24 @@ const Signinpage = () => {
                 </div>
           
             </Tab.Panel>
+            {/*Patient Signup*/}
             <Tab.Panel>
             <div className='w-[100%] h-[100%] bg-black rounded-md mt-15 '>
                     <form className='text-white h-[100%] mt-15 p-5 ml-8'>
                         <label className='block mt-5'>
-                            Doctor ID
+                            Date of Registration
                         </label>
                         <input type="text" className='bg-[#6F6F6F] block mt-3 w-[70%] text-white p-1' />
                         <label className='block mt-5'>
-                        Doctor Name
+                        Patient Name
                         </label>
                         <input type="text" className='bg-[#6F6F6F] block mt-3 w-[70%] text-white p-1' />
                         <label className='block mt-5'>
-                        Specialization
+                        Age
+                        </label>
+                        <input type="text" className='bg-[#6F6F6F] block mt-3 w-[70%] text-white p-1' />
+                        <label className='block mt-5'>
+                        Gender
                         </label>
                         <input type="text" className='bg-[#6F6F6F] block mt-3 w-[70%] text-white p-1' />
                         <label className='block mt-5'>
@@ -113,9 +118,9 @@ const Signinpage = () => {
                     </form>
                 </div>
             </Tab.Panel>
-            <Tab.Panel>
-                Elephant
-            </Tab.Panel>
+            {/* <Tab.Panel>
+                Login
+            </Tab.Panel> */}
         </Tab.Panels>
       </Tab.Group>
     </div>
