@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { FaHome, FaUser, FaBriefcaseMedical } from "react-icons/fa";
-import { ImExit } from "react-icons/Im";
+import { ImExit } from "react-icons/im";
 const UserDashboard = () => {
   return (
     <section className="flex">
@@ -36,22 +36,22 @@ const UserDashboard = () => {
               Doctor
             </li>
             <li className="p-2 w-[90%] flex items-center  gap-2 rounded-lg duration-150 cursor-pointer hover:bg-primary hover:scale-105">
-            <span>
-              <ImExit />
-            </span>
-            Logout
-          </li>
+              <span>
+                <ImExit />
+              </span>
+              Logout
+            </li>
           </ul>
-         
+
         </div>
       </div>
 
       {/* main content */}
-       {/*User Dashboard */}
+      {/*User Dashboard */}
       <div className="w-[82%] ml-auto p-3 ">
         <div className="flex justify-end pb-2">
           <div className="bg-slate-600 items-center flex rounded-full pl-2 pr-2 cursor-pointer">
-           
+
             <Image
               className=" h-6 w-6 rounded-full ring-2 ring-white  "
               src="https://img.freepik.com/premium-vector/cool-vivid-pink-web3-gradient-background_731298-35.jpg "
