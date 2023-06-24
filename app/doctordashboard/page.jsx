@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { FaHome, FaUser, FaBriefcaseMedical } from "react-icons/fa";
 import { ImExit } from "react-icons/Im";
-const UserDashboard = () => {
+const DoctorDashboard = () => {
   return (
     <section className="flex">
       {/* left sidebar */}
@@ -33,7 +33,7 @@ const UserDashboard = () => {
               <span>
                 <FaBriefcaseMedical />
               </span>
-              Doctor
+              Patient
             </li>
             <li className="p-2 w-[90%] flex items-center  gap-2 rounded-lg duration-150 cursor-pointer hover:bg-primary hover:scale-105">
             <span>
@@ -136,4 +136,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default DoctorDashboard;

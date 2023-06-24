@@ -3,6 +3,7 @@ const nextConfig = {images: {
   domains: [
     'github.com',
     'images.unsplash.com',
+    'img.freepik.com',
   ],
   },}
 
