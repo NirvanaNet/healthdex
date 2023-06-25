@@ -5,7 +5,7 @@ export default function Navbar() {
     return (
         <header className=" border-gray-100 pt-2 ">
             <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8">
-                <div className="flex items-center gap-4">
+                <Link className="flex items-center gap-4" href="/">
                     <Image
                         src="https://github.com/dakshsinghrathore/WEB3_CHAT_DAPP/assets/115932772/6ddf002f-c56a-47eb-9c3a-1dc879933054 "
                         width={200}
@@ -13,7 +13,7 @@ export default function Navbar() {
                         className="inline-block  hover:scale-110 duration-300  rounded-lg font-bold text-xl"
                         alt="logo"
                     />
-                </div>
+                </Link>
 
                 <div className="flex flex-1 items-center justify-end gap-8">
                     <nav
