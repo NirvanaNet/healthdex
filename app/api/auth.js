@@ -2,21 +2,15 @@
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 
-export const config = fcl.config({
-    "accessNode.api": process.env.ACCESS_NODE_API,
-    "discovery.wallet": process.env.DISCOVERY_WALLET
+import { config } from "@onflow/fcl";
 
+config({
+  "accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+  "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn" // Mainnet: "https://fcl-discovery.onflow.org/authn"
 })
 
 
-//function for the login 
-export const Login = () => {
-    fcl.authenticate();
-}
 
-//function for the logout
-export const Logout = () => {
-    fcl.unauthenticate();
-}
+
 
 
