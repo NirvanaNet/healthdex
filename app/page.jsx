@@ -42,7 +42,7 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4 ">
-              <button onClick={openModal} type='button'
+              <button onClick={Login} type='button'
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
               >
                 Connect with Wallet
