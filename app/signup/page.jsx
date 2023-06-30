@@ -82,6 +82,12 @@ const Signinpage = () => {
                       </label>
                       <input type="text" className='bg-gray-800 block mt-3 w-full text-white  rounded outline-none p-2' placeholder='Enter your mobile number' />
 
+                      <label className='block mt-5'>
+                        Email Address</label>
+                      <input type="email" className='bg-gray-800 block mt-3 w-full text-white  rounded outline-none p-2' placeholder='Enter your email address' />
+                      <label className='block mt-5'>
+                        Create Password</label>
+                      <input type="password" className='bg-gray-800 block mt-3 w-full text-white  rounded outline-none p-2' placeholder='Create a password' />
                       <button className='px-5 py-2  rounded-lg mt-10 bg-white text-black hover:bg-gray-300 mx-[40%]'>Sign Up</button>
                     </form>
                   </div>
@@ -115,6 +121,15 @@ const Signinpage = () => {
                         Contact Number
                       </label>
                       <input type="text" className='bg-gray-800 block mt-3 w-full text-white  rounded outline-none p-2' placeholder='Enter your contact number' />
+
+                      <label className='block mt-5'>
+                        Email Address</label>
+                      <input type="email" className='bg-gray-800 block mt-3 w-full text-white  rounded outline-none p-2' placeholder='Enter your email address' />
+                      <label className='block mt-5'>
+                        Create Password</label>
+                      <input type="password" className='bg-gray-800 block mt-3 w-full text-white  rounded outline-none p-2' placeholder='Create a password' />
+
+
                       <button className='px-5 py-2 rounded-lg mt-10  bg-white text-black hover:bg-gray-30 mx-[40%]'>Sign Up</button>
                     </form>
                   </div>
