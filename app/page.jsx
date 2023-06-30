@@ -5,7 +5,14 @@ import { Fragment } from 'react'
 import Navbar from "../components/navbar"
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
+import { config } from "@onflow/fcl";
+import { useRouter } from 'next/navigation'
 
+
+config({
+  "accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+  "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn" // Mainnet: "https://fcl-discovery.onflow.org/authn"
+})
 
 
 export default function Home() {
@@ -25,21 +32,32 @@ export default function Home() {
 
   useEffect(()=>{
     fcl.currentUser.subscribe(setUser)
-    localStorage.setItem(setUser)
   }, [])
+  
+  const router = useRouter()
 
+  //function for login 
+  const Login = () => {
 
-//function for the login 
-const Login = () => {
-  fcl.authenticate();
-}
+    try{
+    fcl.authenticate();
+    localStorage.getItem("user", user.addr)
+    }catch(err){
+      console.error(err)
+    }
+  }
+   
+  //function for logout
 
-//function for the logout
-const Logout = () => {
-  fcl.unauthenticate();
-  localStorage.setItem
-}
-
+  const Logout = () =>{
+    try{
+      fcl.unauthenticate();
+      localStorage.removeItem("user")
+      router.push("/  ")
+    }catch(err){
+      console.error(err)
+    }
+  }
 
 
   return (
