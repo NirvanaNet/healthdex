@@ -7,6 +7,7 @@ import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 import { config } from "@onflow/fcl";
 import { useRouter } from 'next/navigation'
+import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
 
 
 config({
@@ -30,35 +31,48 @@ export default function Home() {
     setIsOpen(true)
   }
 
-  useEffect(()=>{
-    fcl.currentUser.subscribe(setUser)
-  }, [])
   
+ 
   const router = useRouter()
 
+  useEffect(()=>{
+    fcl.currentUser.subscribe(setUser)
+  })
+  
   //function for login 
-  const Login = () => {
-
+  const Login = async () => {
     try{
-    fcl.authenticate();
-    localStorage.getItem("user", user.addr)
+    await fcl.authenticate().then(()=>{
+      fcl.currentUser.subscribe(setUser)
+      localStorage.setItem("User", user.addr),  
+      router.push("/signin")
+    })
     }catch(err){
       console.error(err)
     }
   }
-   
+  
+ 
   //function for logout
 
   const Logout = () =>{
     try{
-      fcl.unauthenticate();
-      localStorage.removeItem("user")
-      router.push("/  ")
+      fcl.unauthenticate().then(()=>{
+        localStorage.removeItem("User")
+        router.push("/")
+      })
     }catch(err){
       console.error(err)
     }
   }
 
+  // //useEffect
+  // useEffect(()=> {
+  //  if(user.addr !== ''){
+  //  }else if(user.addr === null){
+
+  //  }
+  // }, [])
 
   return (
     <main className=" text-white">
@@ -84,7 +98,7 @@ export default function Home() {
 
       {/* conditional renedering  */}
 
-           { user.addr !== "" && <div className="mt-8 flex flex-wrap justify-center gap-4 ">
+           { user.addr === "" && <div className="mt-8 flex flex-wrap justify-center gap-4 ">
               <button onClick={Login} type='button'
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
               >
