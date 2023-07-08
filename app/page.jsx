@@ -1,9 +1,24 @@
 "use client" // this is a client-side only component
+import { useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import Navbar from "../components/navbar"
+import * as fcl from "@onflow/fcl"
+import * as t from "@onflow/types"
+import { config } from "@onflow/fcl";
+import { useRouter } from 'next/navigation'
+import { RouteHandlerManager } from 'next/dist/server/future/route-handler-managers/route-handler-manager'
+
+
+config({
+  "accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+  "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn" // Mainnet: "https://fcl-discovery.onflow.org/authn"
+})
+
+
 export default function Home() {
 
+  const [user, setUser] = useState({addr: ''}) 
   let [isOpen, setIsOpen] = useState(false) // for popup
 
   // functions for popup
@@ -16,6 +31,48 @@ export default function Home() {
     setIsOpen(true)
   }
 
+  
+ 
+  const router = useRouter()
+
+  useEffect(()=>{
+    fcl.currentUser.subscribe(setUser)
+  })
+  
+  //function for login 
+  const Login = async () => {
+    try{
+    await fcl.authenticate().then(()=>{
+      fcl.currentUser.subscribe(setUser)
+      localStorage.setItem("User", user.addr),  
+      router.push("/signin")
+    })
+    }catch(err){
+      console.error(err)
+    }
+  }
+  
+ 
+  //function for logout
+
+  const Logout = () =>{
+    try{
+      fcl.unauthenticate().then(()=>{
+        localStorage.removeItem("User")
+        router.push("/")
+      })
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  // //useEffect
+  // useEffect(()=> {
+  //  if(user.addr !== ''){
+  //  }else if(user.addr === null){
+
+  //  }
+  // }, [])
 
   return (
     <main className=" text-white">
@@ -23,6 +80,7 @@ export default function Home() {
       <Navbar />
       {/* HeroPage */}
       <section className=" text-white ">
+        {user.addr ? user.addr : ""}
         <div
           className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen  "
         >
@@ -38,13 +96,23 @@ export default function Home() {
               HealthDex is a reliable and robust platform, its advanced features and stringent protocols offers a seamless and protected environment for storing and accessing sensitive medical information.
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4 ">
-              <button onClick={openModal} type='button'
+      {/* conditional renedering  */}
+
+           { user.addr === "" && <div className="mt-8 flex flex-wrap justify-center gap-4 ">
+              <button onClick={Login} type='button'
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
               >
                 Connect with Wallet
               </button>
 
+            </div>
+            }
+            <div className="mt-8 flex flex-wrap justify-center gap-4 ">
+              <button onClick={Logout} type='button'
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-md font-medium text-white    hover:scale-110 duration-300  sm:w-auto"
+              >
+                Disconnect with Wallet
+              </button>
 
             </div>
           </div>
