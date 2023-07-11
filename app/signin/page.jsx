@@ -11,9 +11,9 @@ function classNames(...classes) {
 
 const SignInPage = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <Navbar />
-      <section className="w-[100vw] h-[100%] flex justify-center overflow-x-hidden">
+      <section className="w-[100vw] h-[100%] flex justify-center overflow-x-hidden ">
         <div className="w-[50vw] h-[100%] m-10 flex justify-center items-center border rounded-lg border-gray-500">
           <div className="w-[80%] h-[100%] px-6 py-6 sm:px-0">
             <Tab.Group>

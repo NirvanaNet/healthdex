@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <main className=" text-white">
+    <main className=" text-white bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r">
       {/* for navbar */}
       <Navbar />
       {/* HeroPage */}
