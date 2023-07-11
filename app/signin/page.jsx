@@ -109,9 +109,7 @@ const SignInPage = () => {
                     </form>
                   </div>
                 </Tab.Panel>
-                {/* <Tab.Panel>
-                Login
-            </Tab.Panel> */}
+               
               </Tab.Panels>
             </Tab.Group>
             <div className="flex justify-center items-center">
@@ -124,5 +122,7 @@ const SignInPage = () => {
     </div>
   );
 };
+
+
 
 export default SignInPage;
